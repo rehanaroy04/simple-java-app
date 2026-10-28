@@ -24,8 +24,10 @@ spec:
         - name: app-storage
           mountPath: /app/data
         readinessProbe:
-          tcpSocket:
-            port: 8080
+          exec:
+            command:
+            - cat
+            - /app/app.jar
           initialDelaySeconds: 5
           periodSeconds: 10
       volumes:
